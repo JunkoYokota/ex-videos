@@ -2,6 +2,13 @@
 
 <h1>Posts</h1>
 
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+# 以下を追記
+  <%= image_tag url_for(@user.avatar) %>
+</p>
+
 <table>
   <thead>
     <tr>

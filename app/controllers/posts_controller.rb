@@ -5,11 +5,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @user = User.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @video = Video.find(params[:id])
   end
 
   # GET /posts/new
@@ -69,6 +71,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:video)
+      params.require(:post).permit(:video, :title, :introduction, :user_id)
     end
 end
