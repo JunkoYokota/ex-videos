@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<strong>movies:</strong>
+<% if @post.video.attached? %>
+<video src="<%= rails_blob_path(@post.video) %>" width="1020" controls></video>
+<% end %>
+<p><%= @post.title %></p> <br>
+<p><%= @post.introduction %></p>
+
 <p>
-  <strong>Video:</strong>
-  <%= link_to @post.video_url.to_s do %>
-   <%= video_tag(@post.video.to_s) %>
-  <% end %>
+  <strong>Content:</strong>
+  <%= @post.content %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

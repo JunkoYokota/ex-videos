@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>ex-videos</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,16 +11,17 @@
 
   <body>
     <header>
-    <nav>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.username %></strong>.
-        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "サインイン", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </nav>
+      <%= link_to "Home", root_path %>
+      <nav>
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.name %></strong>.
+          <%= link_to 'プロフィール変更', edit_user_registration_path %> |
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "サインイン", new_user_registration_path %> |
+          <%= link_to "ログイン", new_user_session_path %>
+        <% end %>
+      </nav>
   </header>
 
     <%= yield %>
